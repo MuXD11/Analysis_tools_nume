@@ -1,5 +1,7 @@
 import numpy as np
 
+# This code  generates random 3D velocity vectors for a given energy
+
 # Constants
 energy_eV_100 = 100  # eV
 energy_eV_200 = 200  # eV
