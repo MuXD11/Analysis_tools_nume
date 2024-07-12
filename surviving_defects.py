@@ -75,9 +75,9 @@ from ovito.io import import_file
 from ovito.modifiers import ClusterAnalysisModifier, DeleteSelectedModifier, ExpressionSelectionModifier, WignerSeitzAnalysisModifier, InvertSelectionModifier
 
 # Define the base path and simulation numbers
-base_path = "/home/carlos/Desktop/NuME_codes_sync/NuME_codes/files_turbogap/results/results15/sim"
-reference_path = "/home/carlos/Desktop/NuME_codes_sync/NuME_codes/files_turbogap/auto1/initial_size10_temp300_potenialgap_200ev.xyz"
-num_sims = 24
+base_path = "/home/carlos/Desktop/transfer_local_local/results16/sim"
+reference_path = "//home/carlos/Desktop/RESEARCH INFO/initial_structures_8-22/initial_size10_temp300_potenialgap.xyz"
+num_sims = 40
 
 # Initialize lists to store the number of surviving defects and simulation numbers
 surviving_defects = []
@@ -134,6 +134,6 @@ plt.title('Surviving Defects')
 plt.grid(True)
 
 # Save the plot to a file instead of displaying it
-plt.savefig('/home/carlos/Desktop/analysis_tools/surviving_defects_vs_sim_number.png')
+plt.savefig('/home/carlos/Desktop/analysis_tools/defects/surviving_defects_vs_sim_number_thermostat.png')
 
 print("Plot saved successfully.")
