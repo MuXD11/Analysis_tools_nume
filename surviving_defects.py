@@ -75,9 +75,9 @@ from ovito.io import import_file
 from ovito.modifiers import ClusterAnalysisModifier, DeleteSelectedModifier, ExpressionSelectionModifier, WignerSeitzAnalysisModifier, InvertSelectionModifier
 
 # Define the base path and simulation numbers
-base_path = "/home/carlos/Desktop/transfer_local_local/results16/sim"
-reference_path = "//home/carlos/Desktop/RESEARCH INFO/initial_structures_8-22/initial_size10_temp300_potenialgap.xyz"
-num_sims = 40
+base_path = "/scratch/phys/nume/carlos/simulation_results/sim"
+reference_path = "/home/enec1/simulations1/NuME_codes/files_turbogap/initial_size10_temp300_potenialgap.xyz"
+num_sims = 100
 
 # Initialize lists to store the number of surviving defects and simulation numbers
 surviving_defects = []
@@ -107,11 +107,11 @@ for sim_number in sim_numbers:
     # Process each frame
     for frame_ in range(pipeline.source.num_frames):
         data = pipeline.compute(frame_)
-        
+
         # Calculate the total number of defects in this frame
         num_defects = np.sum(data.tables['clusters']['Cluster Size'])
         num_defects_per_frame.append(num_defects)
-        
+
         # Get the time associated with this frame
         time = data.attributes['time']
         time_per_frame.append(time)
@@ -119,10 +119,10 @@ for sim_number in sim_numbers:
     # Determine the halfway point in time
     total_simulation_time = time_per_frame[-1]
     halfway_time = total_simulation_time / 1.5
-    
+
     # Find the frame closest to the halfway point
     halfway_index = (np.abs(np.array(time_per_frame) - halfway_time)).argmin()
-    
+
     # Store the number of defects at the halfway point
     surviving_defects.append(num_defects_per_frame[halfway_index])
 
@@ -134,6 +134,7 @@ plt.title('Surviving Defects')
 plt.grid(True)
 
 # Save the plot to a file instead of displaying it
-plt.savefig('/home/carlos/Desktop/analysis_tools/defects/surviving_defects_vs_sim_number_thermostat.png')
+plt.savefig('./surviving_defects_trial.png')
 
 print("Plot saved successfully.")
+

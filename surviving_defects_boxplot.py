@@ -7,9 +7,9 @@ from ovito.io import import_file
 from ovito.modifiers import ClusterAnalysisModifier, DeleteSelectedModifier, ExpressionSelectionModifier, WignerSeitzAnalysisModifier, InvertSelectionModifier
 
 # Define the base path and simulation numbers
-base_path = "/home/carlos/Desktop/transfer_local_local/results16/sim"
-reference_path = "//home/carlos/Desktop/RESEARCH INFO/initial_structures_8-22/initial_size10_temp300_potenialgap.xyz"
-num_sims = 40
+base_path = "/scratch/phys/nume/carlos/simulation_results/sim"
+reference_path = "/home/enec1/simulations1/NuME_codes/files_turbogap/initial_size10_temp300_potenialgap.xyz"
+num_sims = 100
 
 # Initialize lists to store the number of surviving defects and simulation numbers
 surviving_defects = []
@@ -88,6 +88,6 @@ plt.title('Box Plot of Surviving Defects Across Simulations')
 plt.grid(True)
 
 # Save the plot to a file instead of displaying it
-plt.savefig('/home/carlos/Desktop/analysis_tools/defects/surviving_defects_boxplot_custom.png')
+plt.savefig('./surviving_defects_trial.png')
 
 print("Box plot saved successfully.")
